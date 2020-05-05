@@ -1,0 +1,33 @@
+.main__bar
+  .main__bar__header
+    .main__bar__header__box
+      %p.main__bar__header__groupname
+        test
+      %ul.main__bar__header__list
+        %p.main__bar__header__member
+          Member :
+        %p.main__bar__header__name
+          masa
+    %p.main__bar__header__edit
+      = link_to "#", class: "edit-btn" do
+        Edit
+
+  .main__bar__middle
+    .main__bar__chat
+      .main__bar__chat__box
+        .main__bar__chat__box__title
+          %p.main__bar__chat__box__name
+            masa
+          %p.main__bar__chat__box__time
+            2019/11/20(wed) 17:43:01
+        %p.main__bar__text
+          おはよう!
+
+  .form
+    %form.new__message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn", value: "Send"}
