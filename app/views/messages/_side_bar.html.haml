@@ -5,14 +5,16 @@
         = current_user.name
       .side__bar__header__box__icon
         .side__bar__header__box__icon__edit
-          = link_to "#", class:"top-icon" do  
+          = link_to new_group_path, class:"top-icon" do  
             = icon('fas', 'edit')
         .side__bar__header__box__icon__cog
           = link_to edit_user_path(current_user), class:"top-icon" do
             = icon('fas', 'cog')
   .side__bar__main
-    .side__bar__main__group
-      %p.side__bar__main__groupname
-        techcamp
-      %p.side__bar__main__text
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side__bar__main__group
+        = link_to '#', class:"side__bar__main__group__link" do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
