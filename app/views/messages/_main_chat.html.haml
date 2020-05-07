@@ -7,8 +7,9 @@
         %p.main__bar__header__member
           Member：
         .main__bar__header__name
-          - @users.each do |user|
+          - @group.users.each do |user|
             = user.name
+          
     %p.main__bar__header__edit
       = link_to edit_group_path(@group.id), class: "edit-btn" do
         Edit
@@ -35,11 +36,31 @@
   -#         %input{type: "file", class: "input-box__image__file"}
   -#     %input{type: "submit", class: "submit-btn", value: "Send"}
 
+  -# .form
+  -#   .form-box
+  -#     = form_for [@group, @message] do |f|
+  -#       = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+  -#       .input-box__image
+  -#         = f.label :image, class: 'input-box__image__file' do
+  -#           = icon('fas', 'image')
+  -#           = f.file_field :image, class: 'hidden'
+  -#       = f.submit 'Send', class: 'submit-btn'
+
+  -# .form
+  -#   = form_for [@group, @message] do |f|
+  -#     = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+  -#     .input-box__image
+  -#       = f.label :image, class: 'input-box__image__file' do
+  -#         = icon('fas', 'image')
+  -#         = f.file_field :image, class: 'hidden'
+  -#     = f.submit 'Send', class: 'submit-btn'
+
   .form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
-      .input-box__image
-        = f.label :image, class: 'form__mask__image' do
-          = icon('fas', 'image')
-          = f.file_field :image, class: 'input-box__image__file'
-      = f.submit 'Send', class: 'submit-btn'
+      .input_box
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
